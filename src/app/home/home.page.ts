@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Produtos } from '../model/produto.model';
 import { DatabaseService } from '../servico/database.service';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -19,11 +20,30 @@ export class HomePage implements OnInit{
   /* Métodos para baixo */
   constructor(
     /* Nosso serviço de banco de dados */
-    private bancoDados: DatabaseService
+    private bancoDados: DatabaseService,
+    
+    /* Vou fazer um carregando */
+    private loadinControl: LoadingController
+    
     ) {}
-    
+
   ngOnInit(): void {
-    
+    /* Inicia o carregando */
+    this.carregando();
+
+   /* Consulta os dados na WebAPI */
+   this.bancoDados.consulta().subscribe(caixa => this.minhaLista = caixa);
   }
+
+  /* Método do carregando(Loading) */
+  async carregando(){
+    const load = this.loadinControl.create({
+      mode: 'ios',
+      message: 'Aguarde...',
+      duration: 2000
+    });
+    (await load).present();
+  }
+
 
 }

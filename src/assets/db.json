@@ -14,6 +14,11 @@
       "item": "Batata",
       "quant": "5 Kg",
       "id": 3
+    },
+    {
+      "item": "Mamão",
+      "quant": "2 kg",
+      "id": 4
     }
   ]
 }
