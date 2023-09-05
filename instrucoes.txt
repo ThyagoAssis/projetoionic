@@ -1,4 +1,24 @@
-Acesar o meet: https://meet.google.com/fbb-znsh-dfr
 
-Subir o projetoionic em um terminal 
-Subir a WebApi (json-server) em outro terminal
+dontpad.com/ionic2022.2
+Acesar o meet: https://meet.google.com/amz-rjmb-wci
+
+1 - Abrir o terminal do node
+2 - Executar o comando: npm config set strict-ssl false
+3 - Instalar o ionic: npm install -g @ionic/cli
+4 - acessar  a pasta documentos: cd Documents
+5 - executar o comando: git config --global http.sslVerify false
+6 - executar: git clone https://github.com/ThyagoAssis/projetoionic
+7 - acessar a pasta do projeto: cd projetoionic
+8 - Executar o npm install
+9 - Subir o projeto: ionic serve
+
+Etapa 02: Faremos Juntos 
+1 - Instalar dentro da pasta do projeto o firebase e o @angular/fire:   npm install firebase @angular/fire --save
+2 - Alterar no tsconfig.json a opção strict para false
+3 - Importar no app.module o AgularFireModule.initializeApp(enviroment.firebase)
+4 - Criar dentro do enviroment. a propriedade firebase{ SDK do app la do firebase}
+5 - Importar no app.module.ts o AngularFirestoreModule (Fornece as ferramentas de crud)
+
+Qual comando usado par gerar um serviço?
+R: ionic generate service nome_pasta\nome_servico
+ex: ionic generate service servico\firebase

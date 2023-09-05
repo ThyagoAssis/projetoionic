@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DatabaseService } from '../servico/database.service';
+import { FirebaseService } from '../servico/firebase.service';
 
 @Component({
   selector: 'app-formulario',
@@ -24,8 +25,10 @@ export class FormularioPage implements OnInit {
     private formBuilder:FormBuilder,
 
     /* Nosso servço de banco de dados */
-    private bancoDados: DatabaseService
-    
+    //private bancoDados: DatabaseService
+
+    /* Serviço odo firebsae craido por nos */
+    private firebaseService: FirebaseService    
     ) { }
 
   ngOnInit() {
@@ -43,8 +46,11 @@ export class FormularioPage implements OnInit {
 
   /* Metodo do botão do formulario */
   cadastroButton(){
-    /* Usando o metodo de cadastro do nosso serviço */
-    this.bancoDados.cadastro(this.form.value);
+    /* Usando o metodo de cadastro do nosso serviço HTTPCLIENT */
+    //this.bancoDados.cadastro(this.form.value);
+
+    /* Usando O SERVIÇO DO FIREBASE*/
+    this.firebaseService.cadastro(this.form.value);
   }
 
 }

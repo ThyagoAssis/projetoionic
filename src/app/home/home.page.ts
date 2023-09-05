@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Produtos } from '../model/produto.model';
 import { DatabaseService } from '../servico/database.service';
 import { LoadingController } from '@ionic/angular';
+import { FirebaseService } from '../servico/firebase.service';
 
 @Component({
   selector: 'app-home',
@@ -15,13 +16,16 @@ export class HomePage implements OnInit{
   
   /* Array do ngFor */
   /* Produtos é o meu molde */
-  minhaLista:Produtos[] = [];
+  minhaLista:any[] = [];
 
   /* Métodos para baixo */
   constructor(
     /* Nosso serviço de banco de dados */
-    private bancoDados: DatabaseService,
+    //private bancoDados: DatabaseService,
     
+    /* Serviço do firebase */
+    private firebaseService: FirebaseService,
+
     /* Vou fazer um carregando */
     private loadinControl: LoadingController
     
@@ -31,8 +35,11 @@ export class HomePage implements OnInit{
     /* Inicia o carregando */
     this.carregando();
 
-   /* Consulta os dados na WebAPI */
-   this.bancoDados.consulta().subscribe(caixa => this.minhaLista = caixa);
+   /* Consulta os dados na WebAPI  HTTPCLIENT */
+   //this.bancoDados.consulta().subscribe(caixa => this.minhaLista = caixa);
+
+   /* Consulta os dados no firebase */
+   this.firebaseService.consulta().subscribe(results => this.minhaLista = results);
   }
 
   /* Método do carregando(Loading) */
