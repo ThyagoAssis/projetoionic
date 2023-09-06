@@ -25,6 +25,11 @@ export class FirebaseService {
     return this.dadosCollection.add(dados);
   }
 
+  /* Metodo consulta um */
+  consultaUm(id:any){
+    return this.dadosCollection.doc(id).valueChanges();
+  }
+
   /* Metodo de consulta */
   consulta(){
     return this.dadosCollection.snapshotChanges().pipe(

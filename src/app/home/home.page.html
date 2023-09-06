@@ -6,6 +6,8 @@
   </ion-toolbar>
 </ion-header>
 
+
+
 <ion-content [fullscreen]="true">
   <ion-img [src]="imagem"></ion-img>
 
@@ -16,20 +18,20 @@
 
     <!-- Itens da lista -->
     <ion-item>
-      <ion-label>Item: {{produto.item}}</ion-label>
-      <ion-label>Quant: {{produto.quant}}</ion-label>      
+      <ion-label><strong>Item:</strong>  {{produto.item}}</ion-label>
+      <ion-label><strong>Quant:</strong> {{produto.quant}}</ion-label>      
     </ion-item> 
 
     <!-- As opções do sliding -->
     <ion-item-options>
 
       <!-- Botão excluir -->
-      <ion-item-option color="danger">
+      <ion-item-option color="danger" (click)="apaguei(produto.id)">
         <ion-icon name="trash-outline"></ion-icon>
       </ion-item-option>
 
       <!-- Botão editar-->
-      <ion-item-option color="success">
+      <ion-item-option color="success" [routerLink]="['/update',produto.id]">
         <ion-icon name="pencil-outline"></ion-icon>
       </ion-item-option>
     

@@ -14,7 +14,13 @@ const routes: Routes = [
   {
     path: 'formulario',
     loadChildren: () => import('./formulario/formulario.module').then( m => m.FormularioPageModule)
-  } 
+  },   
+  {
+    /* adicionar o id para permitiir que a rota o receba  */
+    path: 'update/:id',
+    loadChildren: () => import('./update/update.module').then( m => m.UpdatePageModule)
+  }
+
 ];
 
 @NgModule({

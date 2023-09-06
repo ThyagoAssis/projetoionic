@@ -52,5 +52,18 @@ export class HomePage implements OnInit{
     (await load).present();
   }
 
+  /* Método do botão excluir */
+  apaguei(id: any){
+    this.firebaseService.excluir(id);
+
+    /* Aguarda 2 segunds e atualiza a pagina */
+    setTimeout(this.refresh,2000);
+  }
+
+  /* Metodo que executa um reload */
+  refresh(){
+    location.reload();
+  }
+
 
 }
