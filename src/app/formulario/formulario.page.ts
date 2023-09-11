@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 import { DatabaseService } from '../servico/database.service';
 import { FirebaseService } from '../servico/firebase.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-formulario',
@@ -28,7 +30,10 @@ export class FormularioPage implements OnInit {
     //private bancoDados: DatabaseService
 
     /* Serviço odo firebsae craido por nos */
-    private firebaseService: FirebaseService    
+    private firebaseService: FirebaseService,
+    
+    /* Router - Me permite navegar entre paginas */
+    private router: Router
     ) { }
 
   ngOnInit() {
@@ -51,6 +56,9 @@ export class FormularioPage implements OnInit {
 
     /* Usando O SERVIÇO DO FIREBASE*/
     this.firebaseService.cadastro(this.form.value);
+
+    /* Navega para a pagina principal  */
+    this.router.navigate(['/']);
   }
 
 }

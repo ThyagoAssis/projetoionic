@@ -21,6 +21,7 @@ const routes: Routes = [
     loadChildren: () => import('./update/update.module').then( m => m.UpdatePageModule)
   }
 
+
 ];
 
 @NgModule({

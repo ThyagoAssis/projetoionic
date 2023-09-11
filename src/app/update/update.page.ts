@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { FirebaseService } from '../servico/firebase.service';
 
@@ -31,14 +31,16 @@ export class UpdatePage implements OnInit {
     private firebaseService: FirebaseService,
     
     /* Ferramenta para caputurar o id */
-    private activateRouter: ActivatedRoute
+    private activateRouter: ActivatedRoute,
+
+    /* Router - Me permite navegar entre paginas */
+    private router: Router
   ) { }
 
   ngOnInit() {
 
     /* Instacia do metodo validaform */
     this.validaForm('');
-
 
     /* Capturar o id da rota */
     this.routerId = this.activateRouter.snapshot.params['id'];
@@ -60,6 +62,9 @@ export class UpdatePage implements OnInit {
   /* Metodo do botao do formulario */
   updateButton(){
     this.firebaseService.editar(this.form.value,this.routerId);
+
+    /* Nveagar para  a pagina principal */
+    this.router.navigate(['/']);
   }
 
 }

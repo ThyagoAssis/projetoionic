@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Produtos } from '../model/produto.model';
 import { DatabaseService } from '../servico/database.service';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, ToastController } from '@ionic/angular';
 import { FirebaseService } from '../servico/firebase.service';
 
 @Component({
@@ -27,7 +27,10 @@ export class HomePage implements OnInit{
     private firebaseService: FirebaseService,
 
     /* Vou fazer um carregando */
-    private loadinControl: LoadingController
+    private loadinControl: LoadingController,
+
+    /* Vou fazer um toast - Ou seja uma mensagem  */
+    private toast: ToastController
     
     ) {}
 
@@ -52,18 +55,33 @@ export class HomePage implements OnInit{
     (await load).present();
   }
 
+  /* Metodo do toastcontroller(ToastController) */
+  async mensagem(){
+    const msg = this.toast.create({
+      mode: 'ios',
+      message: 'Item excluido com sucesso!',
+      color: 'danger',
+      position: 'top',
+      duration: 2000
+    }); 
+    (await msg).present();
+  }
+
   /* Método do botão excluir */
   apaguei(id: any){
     this.firebaseService.excluir(id);
 
+    /* Mensagem */
+    this.mensagem();
+
     /* Aguarda 2 segunds e atualiza a pagina */
-    setTimeout(this.refresh,2000);
+    /* setTimeout(this.refresh,2000); */
   }
 
   /* Metodo que executa um reload */
-  refresh(){
+  /* refresh(){
     location.reload();
-  }
+  } */
 
 
 }

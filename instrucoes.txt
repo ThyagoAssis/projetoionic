@@ -4,7 +4,5 @@ Acesar o meet: https://meet.google.com/amz-rjmb-wci
 
 Subir  o projetoionic
 
-Para criar um nova pagina no ionic
-comando: ionic generate page nome_pagina
-
-ex: ionic generate page update
+AVISO IMPORTANTE
+As 11:30 teremos paletra online Rio web summit

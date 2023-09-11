@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { FormularioPageRoutingModule } from './formulario-routing.module';
 
 import { FormularioPage } from './formulario.page';
+import { HeaderModule } from '../componentes/header/header.module';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { FormularioPage } from './formulario.page';
     Data Driven - Segunda forma de trabalhar formulario
     ReactiveFormsModule - fornece as ferramenas (formgroup, formbuilder) 
      */
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HeaderModule
   ],
   declarations: [FormularioPage]
 })
